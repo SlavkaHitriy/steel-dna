@@ -1,0 +1,46 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.footer {
+    padding: 8px 20px;
+    background-color: #F8F8FA;
+    border-top: 1px solid var(--greyLight);
+    position: relative;
+}
+
+.footerLogo {
+    margin-right: 30px;
+    flex-shrink: 0;
+
+    img {
+        width: 120px;
+        height: 25px;
+        object-fit: contain;
+    }
+}
+
+.footerItem {
+    & + & {
+        margin-left: 10px;
+    }
+}
+
+.footerList {
+    display: flex;
+    align-items: center;
+}
+
+.footerListItem {
+    font-size: 14px;
+    a {
+        padding: 5px 10px;
+
+        &:hover {
+            color: var(--secondary);
+        }
+    }
+
+    & + & {
+        margin-left: 10px;
+    }
+}
