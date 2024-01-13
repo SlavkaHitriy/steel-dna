@@ -12,11 +12,11 @@ export const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/tracking');
+        navigate('/inventory');
     };
 
     return (
-        <Stack alignItems={'center'} justifyContent={'center'} bgcolor={'#F4F4F4'} py={10} px={4} width={'100%'}>
+        <Stack alignItems={'center'} justifyContent={'center'} bgcolor={'grey.300'} py={10} px={4} width={'100%'}>
             <Stack alignItems={'center'} justifyContent={'center'} maxWidth={350} mx={'auto'}>
                 <Box maxWidth={310} maxHeight={63} src={'/assets/logo.png'} component={'img'} mb={1.5} />
                 <Typography mb={6}>Steel Lifecycle Management</Typography>
@@ -107,6 +107,7 @@ export const Login = () => {
                                 width: '100%',
                                 alignSelf: 'center',
                             }}
+                            type={'submit'}
                         >
                             Sign In
                         </Button>

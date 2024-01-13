@@ -81,7 +81,12 @@ button {
     height: 100vh;
     overflow: hidden;
     display: flex;
+}
+
+.app-inner {
+    display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .main {

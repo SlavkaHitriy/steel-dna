@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material';
+import shadows from '@mui/material/styles/shadows';
 
 export const theme = createTheme({
     palette: {
@@ -17,6 +18,7 @@ export const theme = createTheme({
             main: '#9E9E9E',
             light: '#d5d5d5',
             blue: '#8F98AB',
+            [300]: '#f4f4f4',
         },
         red: {
             main: '#f47979',
@@ -25,11 +27,16 @@ export const theme = createTheme({
             light: '#F6F8FA',
         },
         green: {
-            main: '#23D5AA',
+            main: '#76C278',
         },
         orange: {
             main: '#FFAA50',
         },
+    },
+    shadows: {
+        ...shadows,
+        0: 'none',
+        1: '0px 3px 6px rgba(0 0 0 / 16%)',
     },
     typography: {
         allVariants: {
@@ -45,9 +52,9 @@ export const theme = createTheme({
                     fontWeight: 700,
                     '&:hover': {
                         background: '#353B56',
-                    }
-                }
-            }
+                    },
+                },
+            },
         },
         MuiTextField: {
             styleOverrides: {
@@ -62,9 +69,9 @@ export const theme = createTheme({
                         '&::placeholder': {
                             color: '#8F98AB',
                             opacity: 1,
-                        }
+                        },
                     },
-                }
+                },
             },
             defaultProps: {
                 variant: 'outlined',
@@ -73,5 +80,4 @@ export const theme = createTheme({
         },
     },
     textareaAutosize: {},
-    
 });

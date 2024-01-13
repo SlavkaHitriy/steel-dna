@@ -1,82 +1,40 @@
-import cn from 'classnames';
-import React, { useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-
-import logo from '../../assets/images/logo.svg';
-import styles from './index.module.scss';
+import { NotificationsIcon } from '@/assets/icons/NotificationsIcon';
+import { DefaultAvatar } from '@/ui/DefaultAvatar';
+import { Dropdown } from '@/ui/Dropdown';
 import { Box, Stack, Typography } from '@mui/material';
-import { Dropdown } from '../../ui/Dropdown/index.js';
-import { DefaultAvatar } from '../../ui/DefaultAvatar/index.js';
-import { Notifications, NotificationsOutlined } from '@mui/icons-material';
+import React from 'react';
 
 export const Header = () => {
-    const menuItems = useRef([
-        {
-            id: 1,
-            title: 'Inventory',
-            link: '/inventory',
-        },
-        {
-            id: 2,
-            title: 'Inspections',
-            link: '/inspections',
-        },
-        {
-            id: 3,
-            title: 'Map View',
-            link: '/map-view',
-        },
-        {
-            id: 4,
-            title: 'Settings',
-            link: '/settings',
-        },
-    ]);
-
     return (
-        <Stack direction={'row'} alignItems={'center'} component={'header'} className={styles.header}>
-            <Link className={styles.headerLogo} to={'/'}>
-                <img src={logo} alt='logo' />
-            </Link>
-            <Box className={styles.headerCompany}>
+        <Stack
+            position={'relative'}
+            direction={'row'}
+            alignItems={'center'}
+            component={'header'}
+            justifyContent={'space-between'}
+            height={75}
+            pl={2.5}
+            pr={6}
+            sx={{
+                borderBottom: '1px solid',
+                borderColor: 'grey.light',
+            }}
+        >
+            <Stack spacing={0.5}>
+                <Typography fontSize={13}>Monday, November 11, 2023</Typography>
+                <Typography fontSize={13} fontWeight={700}>
+                    Daniel Pacheco Logged In
+                </Typography>
+            </Stack>
+            <Stack direction={'row'} spacing={6} alignItems={'center'}>
                 <Dropdown>
-                    <Stack>
-                        <Typography fontSize={15} fontWeight={700}>
-                            Titan Trailers
-                        </Typography>
-                        <Typography color={'#8F98AB'} fontSize={13}>
-                            Company
-                        </Typography>
-                    </Stack>
-                </Dropdown>
-            </Box>
-            <Box component={'nav'} ml={6} className={styles.headerNav}>
-                <ul className={styles.headerMenu}>
-                    {menuItems.current.map((item) => (
-                        <li className={styles.headerMenuItem} key={item.id}>
-                            <NavLink
-                                className={({ isActive }) =>
-                                    cn(styles.headerMenuLink, {
-                                        [styles.headerMenuLinkActive]: isActive,
-                                    })
-                                }
-                                to={item.link}
-                            >
-                                {item.title}
-                            </NavLink>
-                        </li>
-                    ))}
-                </ul>
-            </Box>
-            <Stack direction={'row'} spacing={4} alignItems={'center'}>
-                <Dropdown content={<Notifications />}>
                     <Stack direction={'row'} alignItems={'center'} spacing={2}>
                         <Box
                             sx={{
                                 position: 'relative',
                                 svg: {
-                                    width: 28,
-                                    height: 28,
+                                    width: 24,
+                                    height: 24,
                                     position: 'static',
                                     transform: 'unset',
                                 },
@@ -89,12 +47,12 @@ export const Header = () => {
                                     backgroundColor: 'green.main',
                                     borderRadius: '10px',
                                     position: 'absolute',
-                                    right: 3,
-                                    top: 4,
+                                    right: 0,
+                                    top: 2,
                                     zIndex: 3,
                                 }}
                             />
-                            <NotificationsOutlined />
+                            <NotificationsIcon />
                         </Box>
                         <Typography fontSize={13}>Notifications</Typography>
                     </Stack>
@@ -102,8 +60,8 @@ export const Header = () => {
                 <Stack direction={'row'} alignItems={'center'} spacing={2}>
                     <DefaultAvatar>AB</DefaultAvatar>
                     <Dropdown>
-                        <Stack alignItems={'center'} justifyContent={'center'} color={'#8F98AB'} fontSize={13} fontWeight={700}>
-                            Anton
+                        <Stack alignItems={'center'} justifyContent={'center'} color={'grey.blue'} fontSize={13} fontWeight={700}>
+                            Daniel
                         </Stack>
                     </Dropdown>
                 </Stack>
