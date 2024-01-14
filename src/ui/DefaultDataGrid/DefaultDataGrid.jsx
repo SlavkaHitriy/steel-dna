@@ -60,7 +60,7 @@ export const DefaultDataGrid = ({
                     cursor: 'pointer',
                 },
                 '.MuiDataGrid-row:nth-of-type(even)': {
-                    backgroundColor: '#F5F7FB',
+                    bgcolor: '#F3F6F9',
 
                     '.MuiAvatar-root': {
                         backgroundColor: 'secondary.main',
@@ -93,7 +93,7 @@ export const DefaultDataGrid = ({
                     overflowX: 'auto',
                 },
                 '.MuiDataGrid-columnHeadersInner': {
-                    backgroundColor: '#F5F7FB',
+                    bgcolor: '#F3F6F9',
                 },
                 '.MuiDataGrid-columnHeaderTitleContainerContent': {
                     flexGrow: 1,

@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material';
-import { DefaultInput } from '../../ui/DefaultInput';
-import { DefaultIconButton } from '../../ui/DefaultIconButton';
+import { DefaultInput } from '@/ui/DefaultInput';
+import { DefaultIconButton } from '@/ui/DefaultIconButton';
 import { Search } from '@mui/icons-material';
 
 export const SearchInput = () => {
@@ -12,12 +12,10 @@ export const SearchInput = () => {
         <Stack
             direction={'row'}
             sx={{
-                backgroundColor: '#F5F7FB',
+                bgcolor: 'blue.light',
                 borderRadius: '5px',
-                maxWidth: '710px',
-                width: '100%',
+                minWidth: '295px',
                 overflow: 'hidden',
-                boxShadow: '0 3px 6px rgba(0 0 0 / 16%)',
             }}
             component={'form'}
             onSubmit={handleSubmit}
@@ -27,20 +25,10 @@ export const SearchInput = () => {
                 type='submit'
                 size={'100%'}
                 sx={{
-                    width: '65px',
+                    width: 45,
                     borderRadius: 0,
-                    position: 'relative',
                     backgroundColor: '#f8f8fa',
-                    color: 'grey.blue',
-
-                    '&::after': {
-                        content: "''",
-                        position: 'absolute',
-                        height: 25,
-                        width: '1px',
-                        backgroundColor: 'grey.light',
-                        right: 0,
-                    },
+                    color: 'primary.main',
 
                     '&:hover': {
                         backgroundColor: '#f8f8fa',
@@ -48,9 +36,7 @@ export const SearchInput = () => {
                 }}
             />
             <DefaultInput
-                placeholder={
-                    'Search for tracker ID, asset name, contact or other details…'
-                }
+                placeholder={'Search'}
                 sx={{
                     width: '100%',
                     '.MuiInputBase-root::before': {
@@ -58,11 +44,11 @@ export const SearchInput = () => {
                     },
                     '.MuiInputBase-root': {
                         height: '45px',
-                        px: '20px',
+                        px: 2,
                     },
                     '.MuiInputBase-input': {
                         '&::placeholder': {
-                            fontWeight: 700,
+                            opacity: 1,
                         },
                     },
                 }}

@@ -15,6 +15,7 @@ export const Header = () => {
             height={75}
             pl={2.5}
             pr={6}
+            flexShrink={0}
             sx={{
                 borderBottom: '1px solid',
                 borderColor: 'grey.light',

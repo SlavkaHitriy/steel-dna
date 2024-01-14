@@ -3,7 +3,7 @@ export const getStatusColor = (code) => {
         case 1:
             return 'green.main';
         case 2:
-            return 'orange.main';
+            return 'secondary.main';
         case 3:
             return 'red.main';
         default:

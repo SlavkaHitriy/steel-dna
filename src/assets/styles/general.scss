@@ -87,6 +87,16 @@ button {
     display: flex;
     flex-direction: column;
     flex: 1;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        width: 4px;
+        background-color: #bdbdbd;
+    }
 }
 
 .main {

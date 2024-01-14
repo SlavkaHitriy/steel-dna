@@ -18,19 +18,22 @@ export const theme = createTheme({
             main: '#9E9E9E',
             light: '#d5d5d5',
             blue: '#8F98AB',
+            [200]: '#F5F7FA',
             [300]: '#f4f4f4',
         },
         red: {
             main: '#f47979',
+            light: '#FF3841',
         },
         blue: {
+            main: '#0084FF',
             light: '#F6F8FA',
         },
         green: {
-            main: '#76C278',
+            main: '#24D5AA',
         },
         orange: {
-            main: '#FFAA50',
+            main: '#FEBC2E',
         },
     },
     shadows: {

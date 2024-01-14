@@ -1,9 +1,9 @@
 import { Stack } from '@mui/material';
-import { DefaultIconButton } from '../DefaultIconButton/index.js';
+import { DefaultIconButton } from '@/ui/DefaultIconButton';
 import { Tune } from '@mui/icons-material';
-import { DefaultSelect } from '../DefaultSelect/index.js';
+import { DefaultSelect } from '@/ui/DefaultSelect';
 
-export const Filters = ({ icon }) => {
+export const Filters = ({ icon, fixValue }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
     };
@@ -12,12 +12,13 @@ export const Filters = ({ icon }) => {
         <Stack
             direction={'row'}
             sx={{
-                backgroundColor: '#F5F7FB',
+                bgcolor: 'blue.light',
                 borderRadius: '5px',
                 maxWidth: '300px',
                 width: '100%',
                 overflow: 'hidden',
-                boxShadow: '0 3px 6px rgba(0 0 0 / 16%)',
+                alignItems: 'center',
+                height: fixValue ? '40px' : 'auto',
             }}
             component={'form'}
             onSubmit={handleSubmit}
@@ -27,32 +28,16 @@ export const Filters = ({ icon }) => {
                 type='submit'
                 size={'100%'}
                 sx={{
-                    width: '65px',
+                    width: '45px',
                     borderRadius: 0,
                     position: 'relative',
-                    backgroundColor: '#f8f8fa',
-                    color: 'grey.blue',
-                    pointerEvents: 'none',
-
-                    '&::after': {
-                        content: "''",
-                        position: 'absolute',
-                        height: 25,
-                        width: '1px',
-                        backgroundColor: 'grey.light',
-                        right: 0,
-                    },
-
-                    '&:hover': {
-                        backgroundColor: '#f8f8fa',
-                    },
+                    color: 'primary.main',
                 }}
             />
             <DefaultSelect
-                placeholder={
-                    'Search for tracker ID, asset name, contact or other details…'
-                }
+                label={fixValue}
                 sx={{
+                    pointerEvents: fixValue ? 'none' : 'auto',
                     minWidth: 'unset',
                     width: '100%',
                     '.MuiInputBase-root::before': {
@@ -62,10 +47,13 @@ export const Filters = ({ icon }) => {
                         height: '45px',
                     },
                     '.MuiInputBase-input': {
-                        px: '20px',
+                        px: 2,
                         '&::placeholder': {
                             fontWeight: 700,
                         },
+                    },
+                    '.MuiSvgIcon-root': {
+                        display: 'none',
                     },
                 }}
             />

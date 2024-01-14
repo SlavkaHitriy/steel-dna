@@ -1,6 +1,7 @@
 import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import { Inventory } from '@/modules/Inventory';
+import { InventoryDetails } from '@/modules/InventoryDetails';
 
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Login } from './modules/Login';
@@ -18,6 +19,7 @@ export const App = () => {
                         <Route path='/auth/login' element={<Login />} />
 
                         <Route path='/inventory' element={<Inventory />} />
+                        <Route path='/inventory/:id' element={<InventoryDetails />} />
 
                         <Route path='*' element={<Navigate to='/inventory' replace />} />
                     </Routes>

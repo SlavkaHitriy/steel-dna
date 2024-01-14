@@ -36,7 +36,15 @@ export const Sidebar = () => {
             }}
         >
             <Box p={3}>
-                <Box mb={1.5}>
+                <Box
+                    mb={1.5}
+                    sx={{
+                        img: {
+                            width: '100%',
+                            objectFit: 'contain',
+                        },
+                    }}
+                >
                     <Link to={'/'}>
                         <img src={logo} alt='logo' />
                     </Link>
