@@ -53,8 +53,26 @@ export const theme = createTheme({
                     background: '#1F243B',
                     color: '#fff',
                     fontWeight: 700,
+                },
+                outlinedPrimary: {
                     '&:hover': {
                         background: '#353B56',
+                    },
+                },
+                outlinedSuccess: {
+                    borderColor: '#24D5AA',
+                    background: '#24D5AA',
+                    '&:hover': {
+                        background: '#18c097',
+                        borderColor: '#24D5AA',
+                    },
+                },
+                outlinedError: {
+                    borderColor: '#707070',
+                    background: '#707070',
+                    '&:hover': {
+                        background: '#f47979',
+                        borderColor: '#f47979',
                     },
                 },
             },

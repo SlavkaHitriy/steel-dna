@@ -9,6 +9,8 @@ export const DefaultDataGrid = ({
     pageItems,
     pageSizeOptions = [5, 10, 25],
     handlePageChange,
+    onRowClick = () => {},
+    defaultSize = 13,
     ...otherProps
 }) => {
     const handlePageSizeChange = useCallback(
@@ -25,10 +27,11 @@ export const DefaultDataGrid = ({
                 pagination: { paginationModel: { pageSize: pageItems || 5 } },
             }}
             pageSizeOptions={pageSizeOptions}
+            onRowClick={onRowClick}
             sx={{
                 minHeight: '100px',
                 border: 'none',
-                fontSize: 13,
+                fontSize: defaultSize,
                 '.MuiDataGrid-columnHeader': {
                     '&:last-of-type': {
                         overflow: 'hidden',

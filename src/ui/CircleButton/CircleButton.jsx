@@ -1,7 +1,7 @@
 import { DefaultIconButton } from '@/ui/DefaultIconButton';
 import { Add } from '@mui/icons-material';
 
-export const AddBtn = ({ sx, ...props }) => {
+export const CircleButton = ({ sx, icon, ...props }) => {
     return (
         <DefaultIconButton
             sx={{
@@ -12,7 +12,7 @@ export const AddBtn = ({ sx, ...props }) => {
                 },
                 ...sx,
             }}
-            icon={<Add />}
+            icon={icon || <Add />}
             {...props}
         />
     );

@@ -5,7 +5,7 @@ import { metrics1, metrics2, metrics3 } from '@/modules/Inventory/data/metrics';
 import { PageTitle } from '@/components/PageTitle';
 import { SearchInput } from '@/components/SearchInput';
 import { columns, rows } from '@/modules/Inventory/data/inventory';
-import { AddBtn } from '@/ui/AddBtn';
+import { CircleButton } from '@/ui/CircleButton';
 import { DefaultDataGrid } from '@/ui/DefaultDataGrid';
 import { Filters } from '@/ui/Filters';
 import { Box, Stack } from '@mui/material';
@@ -38,7 +38,7 @@ export const Inventory = () => {
                     <SearchInput />
                     <Filters />
                 </Stack>
-                <AddBtn />
+                <CircleButton onClick={() => navigate('/inventory/new')} />
             </Stack>
             <Box mt={2} flex={1} border={'1px solid'} borderColor={'grey.light'} borderRadius={'5px'} overflow={'hidden'}>
                 <DefaultDataGrid columns={columns} rows={rows} onRowClick={({ id }) => navigate(`/inventory/${id}`)} />

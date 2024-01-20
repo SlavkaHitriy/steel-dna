@@ -11,51 +11,23 @@ const geojson = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
-                coordinates: [-71.03, 42.56],
+                coordinates: [-93.74, 30.09],
             },
             properties: {
-                borderColor: '#36B368',
-                titleName: 'Drill Pipe',
-                titleValue: 'Premium',
-                titleNumber: '4.50',
+                orderNumber: 1200554,
+                orderType: 'Casing',
                 info: [
                     {
-                        name: 'Joints',
-                        value: 260,
-                    },
-                    {
-                        name: 'Feet',
+                        name: 'Footage',
                         value: '8,190',
                     },
                     {
-                        name: 'Ready',
-                        codeValue: 1,
-                    },
-                ],
-            },
-        },
-        {
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [-71.3, 42.16],
-            },
-            properties: {
-                borderColor: '#0875E1',
-                titleName: 'OCTG',
-                titleValue: 'Casing',
-                titleNumber: '4.50',
-                info: [
-                    {
                         name: 'Joints',
-                        value: 260,
+                        value: '260',
                     },
                     {
-                        name: 'Feet',
-                        value: '8,190',
-                    },
-                    {
-                        name: 'Transit',
+                        name: 'Status',
+                        value: 'Ready',
                         codeValue: 1,
                     },
                 ],
@@ -67,15 +39,15 @@ const geojson = {
 export const Map = ({ sx }) => {
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [lng, setLng] = useState(-70.9);
-    const [lat, setLat] = useState(42.35);
+    const [lng, setLng] = useState(-93.745);
+    const [lat, setLat] = useState(30.104);
     const [zoom, setZoom] = useState(9);
 
     const initMap = () => {
         if (!map.current && mapContainer.current) {
             map.current = new mapboxgl.Map({
                 container: mapContainer.current,
-                style: 'mapbox://styles/slavkahitriy/clbzh0yqj002d14nyss1sjga2/draft',
+                style: 'mapbox://styles/slavkahitriy/clrmalkgr004f01pn3uz860dl',
                 center: [lng, lat],
                 zoom: zoom,
             });
@@ -87,22 +59,25 @@ export const Map = ({ sx }) => {
             });
 
             for (const feature of geojson.features) {
-                // create a HTML element for each feature
                 const el = document.createElement('div');
                 el.className = 'marker';
 
-                // make a marker for each feature and add it to the map
                 new mapboxgl.Popup({ closeOnClick: false })
                     .setLngLat(feature.geometry.coordinates)
                     .setHTML(
-                        `<div class='marker-wrapper' style='border: 2px solid ${feature.properties.borderColor}'>
-                            <div class='marker-title-wrap'>
-                                <h3 class='marker-title'>
-                                    ${feature.properties.titleName}: <span>${feature.properties.titleValue}</span>
-                                </h3>
-                                <div class='marker-title-number'>${feature.properties.titleNumber}</div>
+                        `<div class='marker-wrapper'>
+                            <div class='marker-header'>
+                                <div class="marker-header-icon"></div>
+                                <div class="marker-header-item">
+                                    <div class="marker-header-item-value">${feature.properties.orderNumber}</div>
+                                    <div class="marker-header-item-name">Order</div>
+                                </div>
+                                <div class="marker-header-item">
+                                    <div class="marker-header-item-value">${feature.properties.orderType}</div>
+                                    <div class="marker-header-item-name">Type</div>
+                                </div>
                             </div>
-                            <div class='marker-bottom'>
+                            <div class='marker-content'>
                                 <div class='marker-item'>
                                     <div class='marker-item-value'>${feature.properties.info[0].value}</div>
                                     <div class='marker-item-name'>${feature.properties.info[0].name}</div>
@@ -112,9 +87,20 @@ export const Map = ({ sx }) => {
                                     <div class='marker-item-name'>${feature.properties.info[1].name}</div>
                                 </div>
                                 <div class='marker-item'>
-                                    <div class='marker-item-value marker-item-circle'></div>
+                                    <div class="marker-item-box">
+                                        <div class='marker-item-value'>${feature.properties.info[2].value}</div>
+                                        <div class='marker-item-value marker-item-circle'></div>
+                                    </div>
                                     <div class='marker-item-name'>${feature.properties.info[2].name}</div>
                                 </div>
+                            </div>
+                            <div class="marker-footer">
+                                <div class="marker-footer-icon"></div>
+                                <div class="marker-footer-content">
+                                    <div class="marker-footer-address">2800 West Broadway Dr. Houston, Tx</div>
+                                    <div class="marker-footer-time">11.05.2023 @ 8:00 AM</div>
+                                </div>
+                                <button type="button" class="marker-footer-btn"></button>
                             </div>
                         </div>
                         `

@@ -3,18 +3,30 @@ import { InventoryIcon } from '@/assets/icons/InventoryIcon';
 import { Metrics } from '@/components/Metrics';
 import { SearchInput } from '@/components/SearchInput';
 import { Details } from '@/modules/InventoryDetails/Details';
-import { columns, rows } from './data/joints';
 import { tabs } from '@/modules/InventoryDetails/data/tabs';
 import { ColorStatus } from '@/ui/ColorStatus';
-import { DefaultDataGrid } from '@/ui/DefaultDataGrid';
 import { Filters } from '@/ui/Filters';
 import { Tabs } from '@/ui/Tabs';
-import { Box, Grid, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { useState } from 'react';
 import { metrics1, metrics2 } from './data/metrics';
+import { Attachments } from '@/modules/InventoryDetails/Attachments.jsx';
+import { Notes } from '@/modules/InventoryDetails/Notes.jsx';
+import { Map } from '@/components/Map/Map.jsx';
 
 export const InventoryDetails = () => {
     const [activeTab, setActiveTab] = useState(tabs[0].value);
+    const [previousTab, setPreviousTab] = useState(tabs[0].value);
+
+    const handleChangeTab = (tab) => {
+        setPreviousTab(activeTab);
+        setActiveTab(tab);
+    };
+
+    const isFirstTab = activeTab === tabs[0].value || (activeTab === tabs[2].value && previousTab === tabs[0].value);
+    const isSecondTab = activeTab === tabs[1].value || (activeTab === tabs[2].value && previousTab === tabs[1].value);
+    const isThirdTab = activeTab === tabs[2].value;
+    const isForthTab = activeTab === tabs[3].value || (activeTab === tabs[2].value && previousTab === tabs[3].value);
 
     return (
         <Stack py={5} px={2.5} width={'100%'}>
@@ -43,7 +55,7 @@ export const InventoryDetails = () => {
                 <Metrics icon={<InventoryIcon />} data={metrics1} />
                 <Metrics icon={<InspectionsIcon />} data={metrics2} />
             </Stack>
-            <Tabs data={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+            <Tabs data={tabs} activeTab={activeTab} setActiveTab={handleChangeTab} />
             <Stack
                 flex={1}
                 border={'1px solid'}
@@ -53,7 +65,10 @@ export const InventoryDetails = () => {
                 bgcolor={'common.white'}
                 position={'relative'}
             >
-                <Details />
+                {isFirstTab && <Details disabled={isThirdTab} />}
+                {isSecondTab && <Attachments disabled={isThirdTab} />}
+                {isThirdTab && <Notes onClose={() => setActiveTab(previousTab)} />}
+                {isForthTab && <Map />}
             </Stack>
         </Stack>
     );
