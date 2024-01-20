@@ -10,16 +10,3 @@ export const getStatusColor = (code) => {
             return 'green.main';
     }
 };
-
-export const getStatusText = (code) => {
-    switch (code) {
-        case 1:
-            return 'Online';
-        case 2:
-            return 'Preparing';
-        case 3:
-            return 'Declined';
-        default:
-            return 'Online';
-    }
-};

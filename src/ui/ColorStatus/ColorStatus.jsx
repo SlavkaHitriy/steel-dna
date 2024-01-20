@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { getStatusColor } from '../../core/functions/statusHelpers.js';
+import { getStatusColor } from '@/core/functions/statusHelpers.js';
 
 export const ColorStatus = ({ code, size = 10 }) => {
     return (
