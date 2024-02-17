@@ -3,7 +3,7 @@ import { DefaultInput } from '@/ui/DefaultInput';
 import { DefaultIconButton } from '@/ui/DefaultIconButton';
 import { Search } from '@mui/icons-material';
 
-export const SearchInput = () => {
+export const SearchInput = ({ sx }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
     };
@@ -16,6 +16,7 @@ export const SearchInput = () => {
                 borderRadius: '5px',
                 minWidth: '295px',
                 overflow: 'hidden',
+                ...sx,
             }}
             component={'form'}
             onSubmit={handleSubmit}

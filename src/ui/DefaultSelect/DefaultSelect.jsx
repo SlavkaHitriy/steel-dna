@@ -3,7 +3,7 @@ import React from 'react';
 import { ArrowIcon } from '@/assets/icons/ArrowIcon';
 import { theme } from '@/core/theme/theme.js';
 
-export const DefaultSelect = ({ sx, label, helperText }) => {
+export const DefaultSelect = ({ sx, label, helperText, helperTextColor }) => {
     return (
         <FormControl variant='standard' sx={{ minWidth: '100%', alignItems: 'center', ...sx }}>
             {label && (
@@ -18,7 +18,7 @@ export const DefaultSelect = ({ sx, label, helperText }) => {
             {!label && (
                 <>
                     <Typography
-                        color={'#A8A8A7'}
+                        color={helperTextColor || '#A8A8A7'}
                         sx={{
                             alignSelf: 'flex-start',
                         }}

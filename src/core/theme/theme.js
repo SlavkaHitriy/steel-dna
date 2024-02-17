@@ -31,6 +31,7 @@ export const theme = createTheme({
         },
         green: {
             main: '#24D5AA',
+            dark: '#14b28c',
         },
         orange: {
             main: '#FEBC2E',

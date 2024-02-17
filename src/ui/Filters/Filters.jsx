@@ -55,6 +55,9 @@ export const Filters = ({ icon, fixValue }) => {
                     '.MuiSvgIcon-root': {
                         display: 'none',
                     },
+                    '.MuiSelect-icon': {
+                        display: 'none',
+                    },
                 }}
             />
         </Stack>
