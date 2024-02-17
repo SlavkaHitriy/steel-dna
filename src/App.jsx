@@ -2,8 +2,10 @@ import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import { Inventory } from '@/modules/Inventory';
 import { InventoryDetails } from '@/modules/InventoryDetails';
+import { MapView } from '@/modules/MapView';
 import { PipeProfiles } from '@/modules/PipeProfiles';
 import { PipeProfilesDetails } from '@/modules/PipeProfilesDetails';
+import { PipeProfilesNew } from '@/modules/PipeProfilesNew';
 import { PipeTally } from '@/modules/PipeTally';
 import { PipeTallyDetails } from '@/modules/PipeTallyDetails';
 import { PipeTallyNew } from '@/modules/PipeTallyNew';
@@ -33,8 +35,10 @@ export const App = () => {
                         <Route path='/pipe-tally/:id' element={<PipeTallyDetails />} />
 
                         <Route path='/pipe-profiles' element={<PipeProfiles />} />
-                        <Route path='/pipe-profiles/new' element={<PipeProfiles />} />
+                        <Route path='/pipe-profiles/new' element={<PipeProfilesNew />} />
                         <Route path='/pipe-profiles/:id' element={<PipeProfilesDetails />} />
+
+                        <Route path='/map-view' element={<MapView />} />
 
                         <Route path='*' element={<Navigate to='/inventory' replace />} />
                     </Routes>

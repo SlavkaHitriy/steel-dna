@@ -12,6 +12,7 @@ export const Popup = ({ isOpened, sx, children, ...props }) => {
                     borderColor: 'green.main',
                     borderRadius: '5px',
                     overflowY: 'auto',
+                    maxHeight: '620px',
                     '&::-webkit-scrollbar': {
                         width: '4px',
                     },

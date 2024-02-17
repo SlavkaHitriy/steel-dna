@@ -3,19 +3,17 @@ import { InventoryIcon } from '@/assets/icons/InventoryIcon';
 import { PipeProfilesIcon } from '@/assets/icons/PipeProfilesIcon';
 import { Metrics } from '@/components/Metrics';
 import { PageTitle } from '@/components/PageTitle';
-import { Filters } from '@/ui/Filters';
-import { Attachments } from './Attachments';
 import { DefaultDataGrid } from '@/ui/DefaultDataGrid';
+import { Filters } from '@/ui/Filters';
 import { Tabs } from '@/ui/Tabs';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { metrics1, metrics2 } from './data/metrics';
+import { Attachments } from './Attachments';
 import { columns, rows } from './data/attributes';
+import { metrics1, metrics2 } from './data/metrics';
 import { tabs } from './data/tabs';
 
 export const PipeProfilesDetails = () => {
-    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState(tabs[0].value);
 
     const handleChangeTab = (tab) => {
